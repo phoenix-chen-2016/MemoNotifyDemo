@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "browser_client/axios": true,
+        "browser_client/index.d.ts": true,
+        "browser_client/index.js": true,
+        "browser_client/models": true,
+        "browser_client/services": true,
+        "browser_client/test": true
+    },
+    "yaml.customTags": [
+        "!reference sequence"
+    ],
+    "dotnet.defaultSolution": "MemoNotify.sln"
+}

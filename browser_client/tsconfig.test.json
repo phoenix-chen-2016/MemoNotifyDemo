@@ -1,0 +1,16 @@
+{
+  "extends": "./node_modules/@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./test",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES2015",
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.js"
+  ]
+}

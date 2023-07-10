@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="scheduleForm">
+      <mat-form-field class="field">
+        <mat-label>Schedule Date</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Schedule a date" formControlName="scheduleTime"
+          [min]="currentDate" />
+        <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSeconds]="false">
+        </ngx-mat-datetime-picker>
+      </mat-form-field>
+      <mat-form-field class="field title">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="field description">
+        <mat-label>Description</mat-label>
+        <textarea matInput [rows]="5" formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field class="field brand">
+        <mat-label>GP Code</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter brand code">
+          <mat-chip-row *ngFor="let gpCode of gpCodes" (removed)="removeGameProvider(gpCode)" [editable]="false"
+            [aria-description]="'press enter to edit ' + gpCode">
+            {{gpCode}}
+            <button matChipRemove [attr.aria-label]="'remove ' + gpCode">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input placeholder="New brand code..." [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="addGameProvider($event)" />
+        </mat-chip-grid>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="submit()">Send</button>
+  </mat-card-actions>
+</mat-card>

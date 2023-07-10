@@ -1,0 +1,11 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MemoNotify.Protos";
+
+import "google/protobuf/timestamp.proto";
+
+message ScheduleRequest {
+	string subject = 1;
+	google.protobuf.Timestamp schedule_time = 2;
+	string payload = 3;
+}

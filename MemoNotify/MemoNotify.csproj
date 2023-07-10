@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SqlQueryToolsConnectionString />
+		<UserSecretsId>b01157c9-1eab-4522-a136-1ab2bf1fa9b9</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Protos\schedule.proto" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentdForward.OpenTelemetry.MessagePack" Version="0.2.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.22.1" />
+		<PackageReference Include="Grpc.Tools" Version="2.53.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Hangfire.AspNetCore" Version="1.7.34" />
+		<PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
+		<PackageReference Include="Hangfire.Mongo" Version="1.9.3" />
+		<PackageReference Include="Hangfire.Redis.StackExchange" Version="1.8.7" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.5.22">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.4.0" />
+		<PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.4.0" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.0.0-rc9.14" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.0.0" />
+		<PackageReference Include="ProfileViewer.OpenTelemetry.Exporter" Version="0.2.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Telegram.Bot" Version="18.0.0" />
+		<PackageReference Include="Tgs.GameServer.Client" Version="0.0.4" />
+		<PackageReference Include="Tgs.MessageQueue.Nats" Version="2.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\schedule.proto" GrpcServices="None" Access="Public" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\" />
+	</ItemGroup>
+
+</Project>
